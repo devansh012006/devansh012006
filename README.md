@@ -1,8 +1,8 @@
 <div align="center">
 
-# Hi 👋, I'm Anshuman Nigam
+# Hi 👋, I'm Devansh Goyal
 
-### B.Tech CSE Student | Aspiring Software Developer
+### B.Tech CSE Student | Aspiring Data Analyst
 
 <img src="https://komarev.com/ghpvc/?username=Anshuman0786&label=Profile%20views&color=F72585&style=flat" alt="profile views" />
 
