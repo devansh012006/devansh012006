@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>devansh012006 — dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0d12;
+    --bg-alt:#0d1119;
+    --panel:#11151d;
+    --panel-2:#141924;
+    --border:#1e2530;
+    --border-soft:#181e28;
+    --text:#dde3ec;
+    --muted:#6b7688;
+    --muted-2:#454e5e;
+    --accent:#5eead4;
+    --accent-dim:#2b6e64;
+    --amber:#f2b155;
+    --coral:#f2836b;
+    --violet:#a78bfa;
+    --mono:'JetBrains Mono', ui-monospace, monospace;
+    --body:'Inter', -apple-system, sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{background:var(--bg);}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(94,234,212,0.06), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 10%, rgba(167,139,250,0.05), transparent),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    min-height:100vh;
+    padding:32px 20px 80px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+
+  .wrap{max-width:980px;margin:0 auto;}
+
+  /* ---- terminal window chrome ---- */
+  .term{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,0.7);
+  }
+  .term-bar{
+    display:flex;align-items:center;gap:8px;
+    padding:11px 16px;
+    background:var(--panel-2);
+    border-bottom:1px solid var(--border);
+  }
+  .dot{width:10px;height:10px;border-radius:50%;}
+  .dot.r{background:#f5716b;}
+  .dot.y{background:#f0bd5f;}
+  .dot.g{background:#63cf8f;}
+  .term-title{
+    flex:1;text-align:center;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    letter-spacing:0.02em;
+  }
+
+  .term-body{padding:36px 40px 40px;}
+
+  /* ---- hero ---- */
+  .hero{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:28px;
+    align-items:start;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .avatar-wrap{position:relative;width:88px;height:88px;flex-shrink:0;}
+  .avatar{
+    width:88px;height:88px;border-radius:12px;
+    border:1px solid var(--border);
+    object-fit:cover;
+    display:block;
+    background:var(--panel-2);
+  }
+  .avatar-ping{
+    position:absolute;bottom:-4px;right:-4px;
+    width:18px;height:18px;border-radius:50%;
+    background:var(--accent);
+    border:3px solid var(--panel);
+  }
+
+  .prompt-line{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:6px;
+  }
+  .prompt-line .sym{color:var(--accent);}
+
+  h1{
+    font-family:var(--mono);
+    font-size:28px;
+    font-weight:700;
+    color:var(--text);
+    letter-spacing:-0.01em;
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  h1 .handle-at{color:var(--muted-2);font-weight:500;}
+  h1 .cursor{
+    display:inline-block;width:9px;height:22px;
+    background:var(--accent);
+    animation:blink 1.1s step-end infinite;
+    border-radius:1px;
+  }
+  @keyframes blink{0%,49%{opacity:1;}50%,100%{opacity:0;}}
+
+  .tagline{
+    margin-top:8px;
+    font-size:14.5px;
+    color:var(--muted);
+    max-width:52ch;
+    line-height:1.55;
+  }
+  .tagline b{color:var(--text);font-weight:600;}
+
+  .meta-row{
+    margin-top:16px;
+    display:flex;flex-wrap:wrap;gap:8px 18px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted-2);
+  }
+  .meta-row span{display:inline-flex;align-items:center;gap:6px;}
+  .meta-row a{color:var(--muted-2);text-decoration:none;}
+  .meta-row a:hover{color:var(--accent);}
+
+  /* ---- stat grid ---- */
+  .stats{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border-soft);
+    border:1px solid var(--border-soft);
+    border-radius:8px;
+    overflow:hidden;
+  }
+  .stat{
+    background:var(--panel);
+    padding:18px 16px;
+    text-align:left;
+  }
+  .stat-label{
+    font-family:var(--mono);
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    color:var(--muted-2);
+    margin-bottom:8px;
+  }
+  .stat-value{
+    font-family:var(--mono);
+    font-size:26px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .stat-value.accent{color:var(--accent);}
+  .stat-value.amber{color:var(--amber);}
+  .stat-value.violet{color:var(--violet);}
+
+  /* ---- section headers (command style) ---- */
+  .cmd{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--muted);
+    margin:38px 0 16px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .cmd .sym{color:var(--accent);}
+  .cmd .out{color:var(--muted-2);}
+  .cmd::after{
+    content:'';flex:1;height:1px;
+    background:var(--border-soft);
+    margin-left:4px;
+  }
+
+  /* ---- repo log ---- */
+  .repo-log{display:flex;flex-direction:column;gap:10px;}
+  .repo-card{
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:16px 18px;
+    display:grid;
+    grid-template-columns:14px 1fr auto;
+    gap:14px;
+    align-items:start;
+    transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none;
+    color:inherit;
+  }
+  .repo-card:hover{
+    border-color:var(--accent-dim);
+    transform:translateX(2px);
+  }
+  .repo-rail{
+    display:flex;flex-direction:column;align-items:center;
+    padding-top:4px;
+    position:relative;
+  }
+  .repo-node{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px rgba(94,234,212,0.12);
+  }
+  .repo-main .name{
+    font-family:var(--mono);
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--text);
+    margin-bottom:5px;
+  }
+  .repo-main .name .fork-tag{
+    font-family:var(--body);
+    font-weight:500;
+    font-size:11px;
+    color:var(--muted-2);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:1px 8px;
+    margin-left:8px;
+  }
+  .repo-desc{
+    font-size:13px;
+    color:var(--muted);
+    line-height:1.5;
+    max-width:56ch;
+  }
+  .repo-tags{
+    margin-top:10px;
+    display:flex;gap:14px;flex-wrap:wrap;
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted-2);
+  }
+  .repo-tags span{display:inline-flex;align-items:center;gap:5px;}
+  .lang-dot{width:8px;height:8px;border-radius:50%;display:inline-block;}
+  .repo-updated{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--muted-2);
+    text-align:right;
+    white-space:nowrap;
+    padding-top:2px;
+  }
+
+  .empty-note{
+    font-family:var(--mono);
+    font-size:12.5px;
+    color:var(--muted-2);
+    padding:20px 4px;
+  }
+
+  /* ---- language bar ---- */
+  .lang-bar{
+    display:flex;
+    height:10px;
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--panel-2);
+    border:1px solid var(--border-soft);
+  }
+  .lang-bar div{height:100%;}
+  .lang-legend{
+    margin-top:14px;
+    display:flex;flex-wrap:wrap;
+    gap:8px 20px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+  }
+  .lang-legend span{display:inline-flex;align-items:center;gap:6px;}
+  .lang-legend b{color:var(--text);font-weight:600;}
+
+  /* ---- footer ---- */
+  .term-footer{
+    margin-top:38px;
+    padding-top:20px;
+    border-top:1px solid var(--border-soft);
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:10px;
+  }
+  .footer-line{
+    font-family:var(--mono);
+    font-size:11.5px;
+    color:var(--muted-2);
+  }
+  .footer-links{display:flex;gap:16px;}
+  .footer-links a{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted);
+    text-decoration:none;
+    border-bottom:1px dashed var(--border);
+    padding-bottom:1px;
+  }
+  .footer-links a:hover{color:var(--accent);border-color:var(--accent-dim);}
+
+  .status-msg{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--muted-2);
+    text-align:center;
+    padding:14px;
+  }
+  .status-msg.err{color:var(--coral);}
+
+  @media(max-width:640px){
+    body{padding:16px 10px 60px;}
+    .term-body{padding:24px 18px 30px;}
+    .hero{grid-template-columns:56px 1fr;gap:16px;}
+    .avatar,.avatar-wrap{width:56px;height:56px;}
+    h1{font-size:20px;}
+    .stats{grid-template-columns:repeat(2,1fr);}
+    .repo-card{grid-template-columns:10px 1fr;}
+    .repo-updated{grid-column:2;text-align:left;padding-top:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="term">
+    <div class="term-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <div class="term-title">devansh012006@github — dashboard — 100×34</div>
+    </div>
+
+    <div class="term-body">
+
+      <div class="hero">
+        <div class="avatar-wrap">
+          <img class="avatar" id="avatar" src="" alt="avatar">
+          <div class="avatar-ping"></div>
+        </div>
+        <div>
+          <div class="prompt-line"><span class="sym">$</span> whoami</div>
+          <h1><span class="handle-at">@</span><span id="login">devansh012006</span><span class="cursor"></span></h1>
+          <div class="tagline" id="bio">Loading profile data from the GitHub API…</div>
+          <div class="meta-row" id="metaRow"></div>
+        </div>
+      </div>
+
+      <div class="stats" id="stats">
+        <div class="stat"><div class="stat-label">Repositories</div><div class="stat-value accent" id="statRepos">–</div></div>
+        <div class="stat"><div class="stat-label">Followers</div><div class="stat-value" id="statFollowers">–</div></div>
+        <div class="stat"><div class="stat-label">Following</div><div class="stat-value" id="statFollowing">–</div></div>
+        <div class="stat"><div class="stat-label">Member since</div><div class="stat-value amber" id="statSince" style="font-size:18px;">–</div></div>
+      </div>
+
+      <div class="cmd"><span class="sym">$</span> git log --oneline --repos <span class="out">// most recently pushed</span></div>
+      <div class="repo-log" id="repoLog">
+        <div class="status-msg">fetching repositories…</div>
+      </div>
+
+      <div class="cmd"><span class="sym">$</span> lang --stat <span class="out">// by repo count</span></div>
+      <div class="lang-bar" id="langBar"></div>
+      <div class="lang-legend" id="langLegend"></div>
+
+      <div class="term-footer">
+        <div class="footer-line" id="footerLine">exit 0</div>
+        <div class="footer-links">
+          <a href="https://github.com/devansh012006" target="_blank" rel="noopener">github.com/devansh012006</a>
+          <a href="https://github.com/devansh012006/devPath" target="_blank" rel="noopener">devPath →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+const USERNAME = "devansh012006";
+
+const LANG_COLORS = {
+  "HTML":"#f2836b","CSS":"#a78bfa","JavaScript":"#f2b155","TypeScript":"#5b9dd9",
+  "Python":"#5eead4","Java":"#e8a33d","C++":"#e06c75","C":"#7c96b3","C#":"#67b26f",
+  "Shell":"#8fce8f","Go":"#4fc3d9","Rust":"#e0895f","PHP":"#8f8fd9","Ruby":"#e05a5a",
+  "Jupyter Notebook":"#e8a33d","Vue":"#6fbf73","Dockerfile":"#5b9dd9","Other":"#4a5568"
+};
+function langColor(name){ return LANG_COLORS[name] || "#5a6478"; }
+
+function timeAgo(dateStr){
+  const d = new Date(dateStr);
+  const diff = Math.floor((Date.now() - d.getTime())/1000);
+  const units = [[31536000,"y"],[2592000,"mo"],[604800,"w"],[86400,"d"],[3600,"h"],[60,"m"]];
+  for(const [s,label] of units){
+    if(diff >= s) return Math.floor(diff/s)+label+" ago";
+  }
+  return "just now";
+}
+function fmtDate(dateStr){
+  const d = new Date(dateStr);
+  return d.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+}
+
+async function loadDashboard(){
+  const repoLogEl = document.getElementById('repoLog');
+  try{
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${USERNAME}`),
+      fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=pushed`)
+    ]);
+
+    if(!userRes.ok) throw new Error('user fetch failed: '+userRes.status);
+    const user = await userRes.json();
+    const repos = reposRes.ok ? await reposRes.json() : [];
+
+    // hero
+    document.getElementById('avatar').src = user.avatar_url;
+    document.getElementById('login').textContent = user.login;
+    document.getElementById('bio').innerHTML = user.bio
+      ? user.bio.replace(/</g,'&lt;')
+      : `<b>${user.name || user.login}</b> — GitHub profile, tracked live via the public API.`;
+
+    const metaRow = document.getElementById('metaRow');
+    const bits = [];
+    if(user.location) bits.push(`<span>📍 ${user.location}</span>`);
+    if(user.company) bits.push(`<span>🏢 ${user.company}</span>`);
+    if(user.blog) bits.push(`<span>🔗 <a href="${user.blog.startsWith('http')?user.blog:'https://'+user.blog}" target="_blank" rel="noopener">${user.blog.replace(/^https?:\/\//,'')}</a></span>`);
+    bits.push(`<span>🆔 id ${user.id}</span>`);
+    metaRow.innerHTML = bits.join('');
+
+    document.getElementById('statRepos').textContent = user.public_repos ?? '0';
+    document.getElementById('statFollowers').textContent = user.followers ?? '0';
+    document.getElementById('statFollowing').textContent = user.following ?? '0';
+    document.getElementById('statSince').textContent = fmtDate(user.created_at);
+
+    // repo log
+    if(!Array.isArray(repos) || repos.length === 0){
+      repoLogEl.innerHTML = `<div class="empty-note">// no public repositories returned</div>`;
+    }else{
+      repoLogEl.innerHTML = '';
+      repos.slice(0,8).forEach(r=>{
+        const card = document.createElement('a');
+        card.className = 'repo-card';
+        card.href = r.html_url;
+        card.target = '_blank';
+        card.rel = 'noopener';
+        card.innerHTML = `
+          <div class="repo-rail"><div class="repo-node"></div></div>
+          <div class="repo-main">
+            <div class="name">${r.name}${r.fork ? '<span class="fork-tag">fork</span>' : ''}</div>
+            <div class="repo-desc">${r.description ? r.description.replace(/</g,'&lt;') : 'No description provided.'}</div>
+            <div class="repo-tags">
+              ${r.language ? `<span><span class="lang-dot" style="background:${langColor(r.language)}"></span>${r.language}</span>` : ''}
+              <span>★ ${r.stargazers_count}</span>
+              <span>⑂ ${r.forks_count}</span>
+            </div>
+          </div>
+          <div class="repo-updated">${timeAgo(r.pushed_at)}</div>
+        `;
+        repoLogEl.appendChild(card);
+      });
+    }
+
+    // language bar
+    const counts = {};
+    repos.forEach(r=>{ if(r.language){ counts[r.language] = (counts[r.language]||0)+1; } });
+    const total = Object.values(counts).reduce((a,b)=>a+b,0);
+    const langBar = document.getElementById('langBar');
+    const langLegend = document.getElementById('langLegend');
+    if(total === 0){
+      langBar.style.display = 'none';
+      langLegend.innerHTML = `<span>// not enough language data yet</span>`;
+    }else{
+      const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+      langBar.innerHTML = sorted.map(([lang,count])=>{
+        const pct = (count/total*100).toFixed(1);
+        return `<div style="width:${pct}%;background:${langColor(lang)}" title="${lang} ${pct}%"></div>`;
+      }).join('');
+      langLegend.innerHTML = sorted.map(([lang,count])=>{
+        const pct = (count/total*100).toFixed(0);
+        return `<span><span class="lang-dot" style="background:${langColor(lang)}"></span>${lang} <b>${pct}%</b></span>`;
+      }).join('');
+    }
+
+    document.getElementById('footerLine').textContent =
+      `exit 0 — synced ${new Date().toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'})}`;
+
+  }catch(err){
+    repoLogEl.innerHTML = `<div class="status-msg err">fetch failed — ${err.message}. GitHub's API rate-limits unauthenticated requests; try again shortly.</div>`;
+    document.getElementById('bio').textContent = 'Could not reach the GitHub API right now.';
+  }
+}
+
+loadDashboard();
+</script>
+
+</body>
+</html>
