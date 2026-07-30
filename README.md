@@ -11,7 +11,7 @@
 
 ### 🚀 About Me
 
-- 🎓 2nd Year B.Tech (CSE) student
+- 🎓 3rd Year B.Tech (CSE) student
 - 💻 Learning full-stack web development and Data Analytics with Python,Excel, HTML, CSS, JavaScript, and a bit of React
 - 🎯 Looking for **internship opportunities** in Data Analytics / Web Development
 - ⚡ Currently building projects and pushing my GitHub streak up
