@@ -12,7 +12,7 @@
 ### 🚀 About Me
 
 - 🎓 2nd Year B.Tech (CSE) student
-- 💻 Learning full-stack web development + strengthening core CS fundamentals in C/C++
+- 💻 Learning full-stack web development with Python, HTML, CSS, JavaScript, and a bit of React
 - 🎯 Looking for **internship opportunities** in Software / Web Development
 - ⚡ Currently building projects and pushing my GitHub streak up
 - 📍 Kanpur, Uttar Pradesh, India
@@ -23,7 +23,7 @@
 
 **💻 Programming & Web**
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,react,nodejs,express,cpp&perline=7&theme=dark" alt="programming and web icons" width="480"/>
+  <img src="https://skillicons.dev/icons?i=python,html,css,js,react&perline=5&theme=dark" alt="programming and web icons" width="360"/>
 </p>
 
 **🤖 AI Tools**
@@ -52,12 +52,12 @@
 ### 📊 GitHub Stats
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=devansh012006&show_icons=true&theme=onedark&hide_border=true&cache_seconds=1800" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=onedark&hide_border=true&cache_seconds=1800" />
+  <img height="165" src="https://github-stats-extended.vercel.app/api?username=devansh012006&show_icons=true&theme=onedark&hide_border=true" />
+  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=onedark&hide_border=true" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=devansh012006&theme=onedark&hide_border=true" />
+  <img src="https://streak-stats.demolab.com/?user=devansh012006&theme=onedark&hide_border=true" />
 </p>
 
 ---
