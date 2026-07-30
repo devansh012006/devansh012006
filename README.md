@@ -42,7 +42,6 @@
 ---
 ### 📊 GitHub Stats
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=devansh012006&show_icons=true&theme=onedark&hide_border=true&count_private=true&cache_seconds=1800" />
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=onedark&hide_border=true&cache_seconds=1800" />
 </p>
 <p align="center">
