@@ -54,16 +54,12 @@
 ---
 
 ### 🚀 Featured Projects
-
 | Project | Description | Tech |
 |---|---|---|
+| [Cafe Sales Analysis](https://github.com/devansh012006/Cafe-Sales-Analysis) | A data cleaning and analysis project on cafe sales data — handling missing/dirty data, generating revenue trends, payment/location splits, and visual reports | Python, Pandas |
 | [devPath](https://github.com/devansh012006/devPath) | A developer website that helps developers find the best-suited path to learn various skills | HTML |
 | Task Management App (Trello Clone) | A Trello-style task management app with drag-and-drop boards for organizing tasks across workflow stages, team collaboration on shared boards, and deadline tracking with notification alerts | React.js, Node.js, JavaScript |
 | Job Portal | A job portal web app with listings, search, and filtering, resume upload for job seekers to apply directly, and an employer dashboard for posting jobs and managing applicants | React.js, Node.js, JavaScript |
-
-> 💡 Add a row here for each new project as you build it — one real sentence about what it does + any results, that's what recruiters actually read.
-> 💡 Once these two are pushed to GitHub, swap their names for links to the repos.
-
 ---
 
 ### 🌐 Connect With Me
