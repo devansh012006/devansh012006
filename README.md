@@ -42,8 +42,7 @@
 ---
 ### 📊 GitHub Stats
 <p align="center">
-  <img height="165" src="https://github-stats-extended.vercel.app/api?username=devansh012006&show_icons=true&theme=onedark&hide_border=true" />
-  <img height="165" src="https://github-stats-extended.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=onedark&hide_border=true" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=onedark&hide_border=true" />
 </p>
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=devansh012006&theme=onedark&hide_border=true" />
