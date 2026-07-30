@@ -46,7 +46,6 @@
 <p align="center">
   <img src="https://streak-stats.demolab.com/?user=devansh012006&theme=onedark&hide_border=true&cache_bust=1" />
 </p>
----
 
 ### 🚀 Featured Projects
 | Project | Description | Tech |
