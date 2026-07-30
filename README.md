@@ -13,7 +13,7 @@
 
 - 🎓 2nd Year B.Tech (CSE) student
 - 💻 Learning full-stack web development and Data Analytics with Python,Excel, HTML, CSS, JavaScript, and a bit of React
-- 🎯 Looking for **internship opportunities** in Software / Web Development
+- 🎯 Looking for **internship opportunities** in Data Analytics / Web Development
 - ⚡ Currently building projects and pushing my GitHub streak up
 - 📍 Kanpur, Uttar Pradesh, India
 
@@ -40,15 +40,6 @@
 </p>
 
 ---
-
-### 🏆 GitHub Trophies
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=devansh012006&theme=onedark&no-frame=true&row=1&column=7" alt="trophies" />
-</p>
-
----
-
 ### 📊 GitHub Stats
 
 <p align="center">
