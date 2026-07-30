@@ -3,13 +3,14 @@
 # Hi 👋, I'm Devansh Goyal
 ### B.Tech CSE Student | Aspiring Data Analyst
 
-<img src="https://komarev.com/ghpvc/?username=devansh012006&label=Profile%20views&color=F72585&style=flat" alt="profile views" />
+<img src="https://komarev.com/ghpvc/?username=devansh012006&label=Profile%20views&color=61AFEF&style=flat" alt="profile views" />
 
 </div>
 
 ---
 
 ### 🚀 About Me
+
 - 🎓 2nd Year B.Tech (CSE) student
 - 💻 Learning full-stack web development + strengthening core CS fundamentals in C/C++
 - 🎯 Looking for **internship opportunities** in Software / Web Development
@@ -41,19 +42,22 @@
 ---
 
 ### 🏆 GitHub Trophies
+
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=devansh012006&theme=radical&no-frame=true&row=1&column=7" alt="trophies" />
+  <img src="https://github-profile-trophy.vercel.app/?username=devansh012006&theme=onedark&no-frame=true&row=1&column=7" alt="trophies" />
 </p>
 
 ---
 
 ### 📊 GitHub Stats
+
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=devansh012006&show_icons=true&theme=radical&hide_border=true&cache_seconds=1800" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=radical&hide_border=true&cache_seconds=1800" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=devansh012006&show_icons=true&theme=onedark&hide_border=true&cache_seconds=1800" />
+  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=devansh012006&layout=compact&theme=onedark&hide_border=true&cache_seconds=1800" />
 </p>
+
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=devansh012006&theme=radical&hide_border=true" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=devansh012006&theme=onedark&hide_border=true" />
 </p>
 
 ---
@@ -63,17 +67,20 @@
 | Project | Description | Tech |
 |---|---|---|
 | [devPath](https://github.com/devansh012006/devPath) | A developer website that helps developers find the best-suited path to learn various skills | HTML |
+| Task Management App (Trello Clone) | A Trello-style task management app with drag-and-drop boards for organizing tasks across workflow stages, team collaboration on shared boards, and deadline tracking with notification alerts | React.js, Node.js, JavaScript |
+| Job Portal | A job portal web app with listings, search, and filtering, resume upload for job seekers to apply directly, and an employer dashboard for posting jobs and managing applicants | React.js, Node.js, JavaScript |
 
 > 💡 Add a row here for each new project as you build it — one real sentence about what it does + any results, that's what recruiters actually read.
+> 💡 Once these two are pushed to GitHub, swap their names for links to the repos.
 
 ---
 
 ### 🌐 Connect With Me
+
 <p align="center">
-  <a href="mailto:YOUR_EMAIL_HERE"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
-  <a href="https://linkedin.com/in/YOUR_LINKEDIN_HERE"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
-  <a href="https://instagram.com/YOUR_INSTAGRAM_HERE"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" /></a>
-  <a href="https://hackerrank.com/YOUR_HACKERRANK_HERE"><img src="https://img.shields.io/badge/HackerRank-2EC866?style=for-the-badge&logo=hackerrank&logoColor=white" /></a>
+  <a href="mailto:devanshgoyal012006@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/devansh-goyal-5ab6b8426"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+  <a href="https://leetcode.com/u/Devanshgoyal2006"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=white" /></a>
 </p>
 
 <div align="center">
